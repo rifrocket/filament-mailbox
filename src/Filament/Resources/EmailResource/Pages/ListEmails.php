@@ -6,10 +6,7 @@ use RifRocket\FilamentMailbox\Filament\Resources\EmailResource;
 use Filament\Resources\Pages\ListRecords;
 use Filament\Resources\Pages\ListRecords\Tab;
 use Filament\Actions\CreateAction;
-use RifRocket\FilamentMailbox\Models\Email; // new import
-use Filament\Forms\Components\TextInput;  // new import
-use Filament\Forms\Components\Textarea;   // new import
-use Filament\Actions\Action; // new import added
+use RifRocket\FilamentMailbox\Models\Email;
 use Filament\Actions\Concerns\InteractsWithActions;
 use RifRocket\FilamentMailbox\Enums\EmailFolderEnums;
 

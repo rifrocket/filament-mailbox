@@ -24,9 +24,9 @@ return [
             'label' => 'BCC',
             'placeholder' => 'Enter the BCC email address',
         ],
-        'bcc' => [
-            'label' => 'BCC',
-            'placeholder' => 'Enter the BCC email address',
+        'cc' => [
+            'label' => 'CC',
+            'placeholder' => 'Enter the CC email address',
         ],
         'created_at' => [
             'label' => 'Date',
@@ -36,7 +36,7 @@ return [
             'placeholder' => 'Enter the email subject',
         ],
         'body' => [
-            'label' => 'Body',
+            'label' => 'Mail Body',
             'placeholder' => 'Enter the email body',
         ],
         'attachments' => [

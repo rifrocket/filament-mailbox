@@ -103,20 +103,27 @@ class EmailResource extends Resource
                         View::make('filament-mailbox::attachments')
                             ->columnSpanFull(),
                     ]),
-                Tabs::make('Content')->tabs([
-                    Tabs\Tab::make(__('filament-mailbox::filament-mailbox.form.html'))
-                        ->schema([
-                            ViewField::make('body')
-                                ->label('')
-                                ->view('filament-mailbox::filament.pages.partials.html_view'),
-                        ]), 
-                    Tabs\Tab::make('Email Chain')
-                        ->schema([
-                            ViewField::make('email_chain')
-                                ->label('')  
-                                ->view('filament-mailbox::filament.pages.partials.email-chain-timeline',['emailChain' => fn ($record) => $record->timeLine()]),
-                        ]),
-                ])->columnSpan(2),
+                // Conditionally render the body field:
+                request()->routeIs('filament.resources.email.create')
+                    ? // Open form on create: show a plain Textarea
+                      \Filament\Forms\Components\Textarea::make('body')
+                          ->label(__('filament-mailbox::mailbox.form.body.label'))
+                    : // ...existing code for tabbed layout...
+                      Tabs::make('Content')->tabs([
+                          Tabs\Tab::make(__('filament-mailbox::filament-mailbox.form.html'))
+                              ->label(__('filament-mailbox::mailbox.form.body.label'))
+                              ->schema([
+                                  ViewField::make('body')
+                                      ->label('')
+                                      ->view('filament-mailbox::filament.pages.partials.html_view'),
+                              ]),
+                          Tabs\Tab::make('Email Chain')
+                              ->schema([
+                                  ViewField::make('email_chain')
+                                      ->label('')
+                                      ->view('filament-mailbox::filament.pages.partials.email-chain-timeline',['emailChain' => fn ($record) => $record->timeLine()]),
+                              ]),
+                      ])->columnSpan(2),
             ]);
     }
 
@@ -252,10 +259,10 @@ class EmailResource extends Resource
     }
 
     // Added canCreate method to enable the create button.
-    public static function canCreate(): bool
-    {
-        return true;
-    }
+    // public static function canCreate(): bool
+    // {
+    //     return true;
+    // }
 
     // public static function canAccess(): bool
     // {
