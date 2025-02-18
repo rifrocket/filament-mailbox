@@ -1,0 +1,60 @@
+advanced-mailbox-plugin/
+├── composer.json
+├── README.md
+├── config/
+│   └── mailbox.php
+├── database/
+│   ├── migrations/
+│   │   ├── 2025_02_11_000000_create_emails_table.php
+│   │   └── 2025_02_11_000001_create_folders_table.php
+│   └── factories/
+│       └── EmailFactory.php
+├── resources/
+│   ├── views/
+│   │   └── filament/
+│   │       ├── pages/
+│   │       │   ├── mailbox-dashboard.blade.php
+│   │       │   ├── list-emails.blade.php
+│   │       │   ├── view-email.blade.php
+│   │       │   └── compose-email.blade.php
+│   │       └── components/
+│   │           └── email-item.blade.php
+│   └── lang/
+│       └── en.json
+├── routes/
+│   └── web.php
+├── src/
+│   ├── Filament/
+│   │   ├── Resources/
+│   │   │   ├── EmailResource.php
+│   │   │   └── EmailResource/
+│   │   │       ├── Pages/
+│   │   │       │   ├── ListEmails.php
+│   │   │       │   ├── ViewEmail.php
+│   │   │       │   └── ComposeEmail.php
+│   │   │       └── RelationManagers/
+│   │   │           └── AttachmentsRelationManager.php
+│   │   ├── Pages/
+│   │   │   └── MailboxDashboard.php
+│   │   └── Widgets/
+│   │       └── EmailStats.php
+│   ├── Commands/
+│   │   └── FetchEmailsCommand.php
+│   ├── Models/
+│   │   ├── Email.php
+│   │   └── Folder.php
+│   ├── Services/
+│   │   └── ImapService.php
+│   ├── Mail/
+│   │   └── ComposeEmailMailable.php
+│   ├── MailboxPlugin.php
+│   └── Providers/
+│       └── MailboxPluginServiceProvider.php
+└── tests/
+    └── Feature/
+        └── MailboxTest.php
+        
+        
+        
+now start work on web.php under routes
+
